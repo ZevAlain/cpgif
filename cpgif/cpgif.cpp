@@ -7,7 +7,6 @@
 int main(int argc, char** argv) {
     // 检查命令行参数是否包含GIF文件路径
     if (argc < 2) {
-        std::cerr << "未提供GIF文件路径作为命令行参数" << std::endl;
         return 1;
     }
 
@@ -29,7 +28,6 @@ int main(int argc, char** argv) {
 
     // 初始化剪贴板
     if (!OpenClipboard(NULL)) {
-        std::cerr << "无法打开剪贴板" << std::endl;
         GlobalFree(hDrop);
         return 1;
     }
@@ -42,8 +40,6 @@ int main(int argc, char** argv) {
 
     // 关闭剪贴板
     CloseClipboard();
-
-    std::wcout << L"GIF图像已成功复制到剪贴板" << std::endl;
 
     return 0;
 }
